@@ -8,8 +8,11 @@ const filterOption = document.querySelector('.todo-filter')
 
 const createNewitem = (event) => {
     event.preventDefault();
-    saveToLocal();   
-const newTodo = `<div class='todo'>
+     
+
+    if(todoInput.value !== ""){
+        saveToLocal();  
+        const newTodo = `<div class='todo'>
                     <li class='todo-item'>${todoInput.value}</li>
                     <button class="complete">
                     <i class='fas fa-check'></i>
@@ -19,7 +22,12 @@ const newTodo = `<div class='todo'>
                     </button>
                 </div>`;
 
-todoList.innerHTML += newTodo;
+    todoList.innerHTML += newTodo;
+    }
+    else{
+        alert('Your field is empty');
+    }
+
 // const todoDiv = document.createElement('div');
 // todoDiv.classList.add('todo');
 
